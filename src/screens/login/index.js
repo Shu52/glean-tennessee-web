@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {login} from '../../helpers'
 import history from '../../navigation/history'
 import Strings, {Regex} from '../../constants'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './styles.css'
 
 export default class Login extends Component {
@@ -50,14 +51,14 @@ export default class Login extends Component {
       <div id="emailError">{Strings.firebaseErrorMessage(loginError)}</div>
     ) : null
     return (
-      <div className="container sign-in-body">
-        <div className="row center-me">
+      <Form className="container sign-in-body">
+        <FormGroup className="row center-me">
           <div className="sign-in-box">
             <h2>Sign In to Get Started</h2>
-            <div className="form-group">
-              <label htmlFor="email">
+            <FormGroup className="form-group">
+              <Label htmlFor="email">
                 Email address
-                <input
+                <Input
                   type="email"
                   name="email"
                   className="form-control"
@@ -67,11 +68,11 @@ export default class Login extends Component {
                   onBlur={this.onEmailBlur}
                 />
                 {emailErrorDiv}
-              </label>
-            </div>
-            <div className="form-group">
-              <label htmlFor="in-password">Password</label>
-              <input
+              </Label>
+            </FormGroup>
+            <FormGroup className="form-group">
+              <Label htmlFor="in-password">Password
+              <Input
                 type="password"
                 name="password"
                 className="form-control"
@@ -79,16 +80,17 @@ export default class Login extends Component {
                 placeholder="Password"
                 onChange={this.onInputChange}
               />
-            </div>
+              </Label>
+            </FormGroup>
             {loginErrorDiv}
-            <button
+            <Button
               id="login-btn"
               type="submit"
               className="btn btn-default btn-sub"
               onClick={this.onSubmit}
             >
               Sign in
-            </button>
+            </Button>
             <p className="sign-up-offer">
               First time with the app?
               <span id="sign-up-show" className="fakelink">
@@ -108,8 +110,8 @@ export default class Login extends Component {
               nutritious food.
             </p>
           </div>
-        </div>
-      </div>
+        </FormGroup>
+      </Form>
     )
   }
 }
