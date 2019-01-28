@@ -4,15 +4,16 @@ import './styles.css'
 import icon from '../../static/icon.png'
 import {logout} from '../../helpers'
 import {withUserContextConsumer} from '../../context/user'
+import history from '../../navigation/history'
 
 class Navigation extends Component {
   state = {
     menuOpen: false
   }
 
-  unauthenticatedLinks = () => [
+  unauthenticatedLinks = activeLink => [
     <Link
-      className="nav-item nav-link active"
+      className={`nav-item nav-link ${activeLink === '/' ? 'active' : ''}`}
       href="/login"
       children={'Log In'}
       key="login"
@@ -20,23 +21,28 @@ class Navigation extends Component {
     />,
     <Link
       key="register"
-      className="nav-item nav-link"
+      className={`nav-item nav-link ${
+        activeLink === '/signup' ? 'active' : ''
+      }`}
       href="/signup"
       children={'Register'}
       callBack={this.closeMenu}
     />
   ]
 
-  authenticatedLinks = () => [
+  authenticatedLinks = activeLink => [
     <Link
-      className="nav-item nav-link"
+      className={`nav-item nav-link ${
+        activeLink === '/dashboard' ? 'active' : ''
+      }`}
       href="/dashboard"
       children={'Gleaning Request'}
       key="request"
       callBack={this.closeMenu}
     />,
     <Link
-      className="nav-item nav-link active"
+      //no href
+      className="nav-item nav-link"
       onClick={logout}
       children={'Log Out'}
       key="logout"
@@ -55,8 +61,9 @@ class Navigation extends Component {
   }
 
   render() {
+    console.log(history.location)
     const links = this.props.user
-      ? this.authenticatedLinks()
+      ? this.authenticatedLinks(history.location.pathname)
       : this.unauthenticatedLinks()
     const menuClass = this.state.menuOpen
       ? 'collapse navbar-collapse show'

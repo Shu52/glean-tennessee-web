@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {signup} from '../../helpers'
 import history from '../../navigation/history'
 import Strings, {Regex} from '../../constants'
+import {Button, Form, FormGroup, Label, Input} from 'reactstrap'
 export default class SignUp extends Component {
   state = {
     name: '',
@@ -59,20 +60,20 @@ export default class SignUp extends Component {
             <h5>
               This is the information SoSA will use to get in touch with you.
             </h5>
-            <form id="registrationForm" onSubmit={this.onSubmit}>
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input
+            <Form id="registrationForm" onSubmit={this.onSubmit}>
+              <FormGroup>
+                <Label htmlFor="name">Name</Label>
+                <Input
                   onChange={this.onInputChange}
                   type="text"
                   className="form-control"
                   id="name"
                   placeholder="Name"
                 />
-              </div>
-              <div className="form-group">
-                <label htmlFor="up-email">Email address</label>
-                <input
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="up-email">Email address</Label>
+                <Input
                   onChange={this.onInputChange}
                   type="email"
                   className="form-control"
@@ -81,77 +82,77 @@ export default class SignUp extends Component {
                   onBlur={this.validateEmail}
                 />
                 {errorDiv}
-              </div>
-              <div className="form-group">
-                <label htmlFor="up-password">Password</label>
-                <input
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="up-password">Password</Label>
+                <Input
                   type="password"
                   onChange={this.onInputChange}
                   className="form-control"
                   id="password"
                   placeholder="Password"
                 />
-              </div>
-              <div className="form-group">
-                <label htmlFor="phone">Phone number</label>
-                <input
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="phone">Phone number</Label>
+                <Input
                   type="tel"
                   className="form-control"
                   onChange={this.onInputChange}
                   id="phone"
                   placeholder="(615) 555-5555"
                 />
-              </div>
-              <div className="form-group">
-                <label htmlFor="street">Street Address</label>
-                <input
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="street">Street Address</Label>
+                <Input
                   type="text"
                   className="form-control"
                   onChange={this.onInputChange}
                   id="street"
                   placeholder="123 Main Street"
                 />
-              </div>
-              <div className="form-group">
-                <label htmlFor="city">City</label>
-                <input
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="city">City</Label>
+                <Input
                   type="text"
                   className="form-control"
                   onChange={this.onInputChange}
                   id="city"
                   placeholder="Nashville"
                 />
-              </div>
-              <div className="form-group">
-                <label htmlFor="state">State</label>
-                <input
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="state">State</Label>
+                <Input
                   type="text"
                   className="form-control"
                   onChange={this.onInputChange}
                   id="state"
                   placeholder="Tennessee"
                 />
-              </div>
-              <div className="form-group">
-                <label htmlFor="zip">Zip Code</label>
-                <input
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="zip">Zip Code</Label>
+                <Input
                   type="number"
                   className="form-control"
                   onChange={this.onInputChange}
                   id="zip"
                   placeholder="37211"
                 />
-              </div>
-            </form>
+              </FormGroup>
+            </Form>
             {signupErrorDiv}
-            <button
+            <Button
               id="register-btn"
               type="submit"
-              className="btn btn-default"
+              className="btn btn-default btn-submit"
               onClick={this.onSubmit}
             >
               Submit
-            </button>
+            </Button>
           </div>
         </div>
       </div>
