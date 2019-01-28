@@ -1,13 +1,13 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
 import firebase from 'firebase'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
 import registerServiceWorker from './registerServiceWorker'
 import history from './navigation/history'
 import resolve from './navigation/router'
 import routes from './navigation/routes'
 import UserContext from './context'
-import 'bootstrap/dist/css/bootstrap.min.css';
 const container = document.getElementById('root')
 
 const renderComponent = component => component

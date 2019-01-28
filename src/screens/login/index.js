@@ -100,8 +100,9 @@ export default class Login extends Component {
               Sign in
             </Button>{' '}
             <p className="sign-up-offer">
-              First time with the app ?
+              First time with the app?
               <span id="sign-up-show" className="fakelink">
+                {' '}
                 Sign up{' '}
               </span>{' '}
             </p>{' '}
